@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Ofouq Real Estate Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <span>AO</span>
+            </div>
+            <div class="nav-items">
+                <div class="nav-item active">
+                    <span>🏠</span>
+                </div>
+                <div class="nav-item">
+                    <span>🔍</span>
+                </div>
+                <div class="nav-item">
+                    <span>📊</span>
+                </div>
+                <div class="nav-item">
+                    <span>🏢</span>
+                </div>
+                <div class="nav-item">
+                    <span>📅</span>
+                </div>
+                <div class="nav-item">
+                    <span>⚙️</span>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <div class="nav-item">
+                    <span>🚪</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Al-Ofouq Real Estate Dashboard</h1>
+                <div class="user-profile">
+                    <div class="notification">
+                        <span>🔔</span>
+                    </div>
+                    <div class="avatar"></div>
+                    <div class="user-name">John Smith</div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Featured Properties -->
+                <div class="card nft-marketplace">
+                    <div class="card-header">
+                        <div class="card-title">Featured Properties</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="nft-filter">
+                        <div class="filter-btn active">For Sale</div>
+                        <div class="filter-btn">For Rent</div>
+                    </div>
+                    <div class="featured-nft">
+                        <img src="pic1.jpg" alt="Luxury villa property">
+                        <div class="nft-info">
+                            <div class="nft-title">Villa Andromeda</div>
+                            <div class="nft-price">
+                                <span class="eth-icon">$</span>
+                                <span>1,425,000</span>
+                                <span style="margin-left: 10px;">★★★★★</span>
+                            </div>
+                            <div style="font-size: 12px; margin-top: 5px;">(24 Views Today)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Stats -->
+                <div class="card investment-stats">
+                    <div class="card-header">
+                        <div class="card-title">Performance Stats</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-investment">
+                            <span>💰</span>
+                        </div>
+                        <div class="stat-details">
+                            <h4>Total Sales Value</h4>
+                            <div class="stat-value">
+                                <span>$</span>
+                                <span>7.56M</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-returns">
+                            <span>📈</span>
+                        </div>
+                        <div class="stat-details">
+                            <h4>Monthly Revenue</h4>
+                            <div class="stat-value">
+                                <span>$</span>
+                                <span>225K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon icon-expenses">
+                            <span>🏘️</span>
+                        </div>
+                        <div class="stat-details">
+                            <h4>Active Listings</h4>
+                            <div class="stat-value">
+                                <span>42</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="returns-chart">
+                        <canvas id="returnsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Agent Performance -->
+                <div class="card my-cards">
+                    <div class="card-header">
+                        <div class="card-title">Agent Performance</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="balance-card">
+                        <div class="balance-title">Quarterly Target</div>
+                        <div class="balance-amount">$2.5M</div>
+                        <div class="monthly-profit">Current Progress</div>
+                        <div class="profit-amount">
+                            $1.4M
+                            <span class="profit-badge">56%</span>
+                        </div>
+                        <div class="card-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Portfolio -->
+                <div class="card nfts-owned">
+                    <div class="card-header">
+                        <div class="card-title">Property Portfolio</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="nft-item">
+                        <div class="nft-details">
+                            <div class="nft-item-title">Roma Avenue Apartments</div>
+                            <div class="nft-item-price">
+                                <span>$</span>
+                                <span>910,000</span>
+                                <span class="price-trend trend-up">+10%</span>
+                            </div>
+                        </div>
+                        <div class="trend-chart">
+                            <canvas id="trendChart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="nft-item">
+                        <div class="nft-details">
+                            <div class="nft-item-title">Thorian Park Villas</div>
+                            <div class="nft-item-price">
+                                <span>$</span>
+                                <span>890,000</span>
+                                <span class="price-trend trend-up">+19%</span>
+                            </div>
+                        </div>
+                        <div class="trend-chart">
+                            <canvas id="trendChart2"></canvas>
+                        </div>
+                    </div>
+                    <div class="nft-item">
+                        <div class="nft-details">
+                            <div class="nft-item-title">Linda Mansion Estate</div>
+                            <div class="nft-item-price">
+                                <span>$</span>
+                                <span>1,100,000</span>
+                                <span class="price-trend trend-down">-7%</span>
+                            </div>
+                        </div>
+                        <div class="trend-chart">
+                            <canvas id="trendChart3"></canvas>
+                        </div>
+                    </div>
+                    <div class="nft-item">
+                        <div class="nft-details">
+                            <div class="nft-item-title">Villa Mary</div>
+                            <div class="nft-item-price">
+                                <span>$</span>
+                                <span>710,000</span>
+                                <span class="price-trend trend-up">+22%</span>
+                            </div>
+                        </div>
+                        <div class="trend-chart">
+                            <canvas id="trendChart4"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Listings -->
+                <div class="card portfolio">
+                    <div class="card-header">
+                        <div class="card-title">Recent Listings</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <div class="portfolio-img" style="background-image: url('pic2.jpg');"></div>
+                            <div class="portfolio-details">
+                                <div class="portfolio-name">Mandragora Mansion</div>
+                                <div class="portfolio-price">
+                                    <span>$</span>
+                                    <span>1.25M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-img" style="background-image: url('pic3.jpg');"></div>
+                            <div class="portfolio-details">
+                                <div class="portfolio-name">Halbert Avenue</div>
+                                <div class="portfolio-price">
+                                    <span>$</span>
+                                    <span>760K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-img" style="background-image: url('pic4.jpg');"></div>
+                            <div class="portfolio-details">
+                                <div class="portfolio-name">Pomeranth Estate</div>
+                                <div class="portfolio-price">
+                                    <span>$</span>
+                                    <span>2.1M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <div class="page-btn">◀</div>
+                        <div class="page-btn active">▶</div>
+                    </div>
+                </div>
+
+                <!-- Monthly Revenue -->
+                <div class="card distributions">
+                    <div class="card-header">
+                        <div class="card-title">Monthly Revenue</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="distribution-chart">
+                        <canvas id="distributionsChart"></canvas>
+                        <div class="chart-point"></div>
+                        <div class="chart-value">$180K</div>
+                    </div>
+                    <div class="chart-days">
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                        <span>Apr</span>
+                        <span>May</span>
+                        <span>Jun</span>
+                        <span>Jul</span>
+                    </div>
+                </div>
+
+                <!-- Market Analysis -->
+                <div class="card top-picks">
+                    <div class="card-header">
+                        <div class="card-title">Market Analysis</div>
+                        <div class="card-options">⋮</div>
+                    </div>
+                    <div class="pick-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="pick-indicator ind-red"></div>
+                            <div class="pick-info">
+                                <div class="pick-name">Roma District</div>
+                                <div class="pick-price">Avg. $400,000</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <div class="pick-eth">High Demand</div>
+                            <div class="pick-arrow">▶</div>
+                        </div>
+                    </div>
+                    <div class="pick-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="pick-indicator ind-orange"></div>
+                            <div class="pick-info">
+                                <div class="pick-name">Atlas Heights</div>
+                                <div class="pick-price">Avg. $500,000</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <div class="pick-eth">Moderate Demand</div>
+                            <div class="pick-arrow">▶</div>
+                        </div>
+                    </div>
+                    <div class="pick-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="pick-indicator ind-green"></div>
+                            <div class="pick-info">
+                                <div class="pick-name">Germantown</div>
+                                <div class="pick-price">Avg. $786,000</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <div class="pick-eth">Emerging Market</div>
+                            <div class="pick-arrow">▶</div>
+                        </div>
+                    </div>
+                    <div class="pick-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="pick-indicator ind-blue"></div>
+                            <div class="pick-info">
+                                <div class="pick-name">Heavenview</div>
+                                <div class="pick-price">Avg. $687,000</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <div class="pick-eth">Luxury Market</div>
+                            <div class="pick-arrow">▶</div>
+                        </div>
+                    </div>
+                    <div class="pick-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="pick-indicator ind-red"></div>
+                            <div class="pick-info">
+                                <div class="pick-name">Heritage Hills</div>
+                                <div class="pick-price">Avg. $348,000</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <div class="pick-eth">First-time Buyers</div>
+                            <div class="pick-arrow">▶</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Tour Panel -->
+                <div class="card construction-panel">
+                    <img src="pic5.jpg" alt="Property Tour">
+                    <div class="panel-overlay">
+                        <div class="overlay-title">Virtual Property Tours</div>
+                        <div class="overlay-desc">Experience properties from anywhere with our immersive 3D virtual tours. Explore every corner before scheduling an in-person visit.</div>
+                        <div class="overlay-btn">Browse Virtual Tours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

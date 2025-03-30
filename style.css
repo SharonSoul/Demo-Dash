@@ -1,0 +1,715 @@
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --background-color: #f8f9fd;
+    --card-color: #ffffff;
+    --text-color: #333;
+    --gray-light: #f1f1f9;
+    --success-color: #00d084;
+    --warning-color: #ff9800;
+    --danger-color: #ff6b6b;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--card-color);
+    padding: 20px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    z-index: 10;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.nav-item {
+    margin: 10px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 22px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: var(--gray-light);
+    color: var(--primary-color);
+}
+
+.nav-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.nav-bottom {
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px 30px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.notification {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    cursor: pointer;
+}
+
+.notification::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--danger-color);
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url('/api/placeholder/40/40');
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-options {
+    color: #888;
+    cursor: pointer;
+}
+
+/* NFT Marketplace */
+.nft-marketplace {
+    grid-column: span 5;
+}
+
+.featured-nft {
+    position: relative;
+    height: 220px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 10px;
+    
+}
+
+.featured-nft img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nft-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.nft-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.nft-price {
+    display: flex;
+    align-items: center;
+}
+
+.eth-icon {
+    margin-right: 5px;
+}
+
+.nft-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background-color: var(--gray-light);
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Investment Stats */
+.investment-stats {
+    grid-column: span 4;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.icon-investment {
+    background-color: #ffeaa7;
+    color: #fdcb6e;
+}
+
+.icon-returns {
+    background-color: #e0ffe7;
+    color: var(--success-color);
+}
+
+.icon-expenses {
+    background-color: #ffe0e0;
+    color: var(--danger-color);
+}
+
+.stat-details h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.returns-chart {
+    height: 150px;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* My Cards */
+.my-cards {
+    grid-column: span 3;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, var(--primary-color), #8c7ae6);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.balance-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.balance-amount {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.monthly-profit {
+    font-size: 14px;
+}
+
+.profit-amount {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.profit-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.card-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+/* NFTs Owned */
+.nfts-owned {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.nft-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.nft-item:last-child {
+    border-bottom: none;
+}
+
+.nft-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.nft-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.nft-item-price {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price-trend {
+    margin-left: 10px;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.trend-up {
+    color: var(--success-color);
+}
+
+.trend-down {
+    color: var(--danger-color);
+}
+
+.trend-chart {
+    width: 80px;
+    height: 30px;
+}
+
+/* Portfolio */
+.portfolio {
+    grid-column: span 5;
+}
+
+.portfolio-items {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.portfolio-items::-webkit-scrollbar {
+    height: 5px;
+}
+
+.portfolio-items::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 10px;
+}
+
+.portfolio-items::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.portfolio-item {
+    min-width: 120px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.portfolio-img {
+    height: 80px;
+    background-color: #ddd;
+    background-image: url('/api/placeholder/120/80');
+    background-size: cover;
+}
+
+.portfolio-details {
+    padding: 10px;
+    background-color: white;
+}
+
+.portfolio-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.portfolio-price {
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.page-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.page-btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.page-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Distributions */
+.distributions {
+    grid-column: span 3;
+}
+
+.distribution-chart {
+    height: 200px;
+    position: relative;
+}
+
+.chart-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.chart-value {
+    position: absolute;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.chart-days {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: #888;
+    font-size: 12px;
+}
+
+/* Top Picks */
+.top-picks {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.pick-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.pick-item:last-child {
+    border-bottom: none;
+}
+
+.pick-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pick-name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.pick-price {
+    color: #888;
+    font-size: 14px;
+}
+
+.pick-eth {
+    font-size: 12px;
+    color: #888;
+}
+
+.pick-indicator {
+    width: 4px;
+    height: 30px;
+    border-radius: 2px;
+    margin-right: 15px;
+}
+
+.ind-red {
+    background-color: var(--danger-color);
+}
+
+.ind-orange {
+    background-color: var(--warning-color);
+}
+
+.ind-green {
+    background-color: var(--success-color);
+}
+
+.ind-blue {
+    background-color: var(--primary-color);
+}
+
+.pick-arrow {
+    color: #888;
+}
+
+/* 3D Construction elements */
+.construction-panel {
+    grid-column: span 12;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    perspective: 1000px;
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+}
+
+.construction-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border-radius: var(--border-radius);
+}
+
+.panel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    color: white;
+}
+
+.overlay-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.overlay-desc {
+    font-size: 16px;
+    max-width: 60%;
+    margin-bottom: 20px;
+}
+
+.overlay-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.overlay-btn:hover {
+    background-color: #5649e6;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .nft-marketplace, .investment-stats, .my-cards,
+    .nfts-owned, .portfolio, .distributions, .top-picks {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nft-marketplace, .investment-stats, .my-cards,
+    .nfts-owned, .portfolio, .distributions, .top-picks {
+        grid-column: span 1;
+    }
+}
